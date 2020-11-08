@@ -1,0 +1,106 @@
+
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+-- -----------------------------------------------------
+-- Schema estacionamento
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema estacionamento
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `estacionamento` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
+USE `estacionamento` ;
+
+-- -----------------------------------------------------
+-- Table `estacionamento`.`clientes`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `estacionamento`.`clientes` (
+  `id_cliente` BIGINT NOT NULL AUTO_INCREMENT,
+  `cpf` VARCHAR(255) NULL DEFAULT NULL,
+  `email` VARCHAR(255) NULL DEFAULT NULL,
+  `nome` VARCHAR(255) NULL DEFAULT NULL,
+  `telefone` VARCHAR(255) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_cliente`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 4
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `estacionamento`.`veiculos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `estacionamento`.`veiculos` (
+  `id_veiculo` BIGINT NOT NULL AUTO_INCREMENT,
+  `modelo` VARCHAR(255) NULL DEFAULT NULL,
+  `placa` VARCHAR(255) NULL DEFAULT NULL,
+  `tipo` VARCHAR(255) NULL DEFAULT NULL,
+  `valor` INT NOT NULL,
+  `cliente` BIGINT NULL DEFAULT NULL,
+  PRIMARY KEY (`id_veiculo`),
+  INDEX `FKk5igdmsceyv04psrgen1bdcl5` (`cliente` ASC) VISIBLE,
+  CONSTRAINT `FKk5igdmsceyv04psrgen1bdcl5`
+    FOREIGN KEY (`cliente`)
+    REFERENCES `estacionamento`.`clientes` (`id_cliente`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 4
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `estacionamento`.`clientes_veiculos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `estacionamento`.`clientes_veiculos` (
+  `clientes_id_cliente` BIGINT NOT NULL,
+  `veiculos_id_veiculo` BIGINT NOT NULL,
+  UNIQUE INDEX `UK_g3m0cg3tui5r08yx5xh76106v` (`veiculos_id_veiculo` ASC) VISIBLE,
+  INDEX `FK6tyu9d992asb098gbvnqk6un0` (`clientes_id_cliente` ASC) VISIBLE,
+  CONSTRAINT `FK1opkgivqg6rrimnf8wab10bnt`
+    FOREIGN KEY (`veiculos_id_veiculo`)
+    REFERENCES `estacionamento`.`veiculos` (`id_veiculo`),
+  CONSTRAINT `FK6tyu9d992asb098gbvnqk6un0`
+    FOREIGN KEY (`clientes_id_cliente`)
+    REFERENCES `estacionamento`.`clientes` (`id_cliente`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `estacionamento`.`ticket`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `estacionamento`.`ticket` (
+  `id_ticket` BIGINT NOT NULL AUTO_INCREMENT,
+  `codigo_ticket` INT NULL DEFAULT NULL,
+  `date_entrada` INT NOT NULL,
+  `date_saida` INT NOT NULL,
+  `vaga` INT NOT NULL,
+  `valor_hora` DOUBLE NOT NULL,
+  `cpf` BIGINT NULL DEFAULT NULL,
+  `placa` BIGINT NULL DEFAULT NULL,
+  PRIMARY KEY (`id_ticket`),
+  UNIQUE INDEX `UK_h8dlwbypbikruvq1qu7y59un4` (`codigo_ticket` ASC) VISIBLE,
+  INDEX `FK2wpdq7evlyedyfv3qx7butya1` (`cpf` ASC) VISIBLE,
+  INDEX `FKoy1uvgjfpjcactqlnrjai253u` (`placa` ASC) VISIBLE,
+  CONSTRAINT `FK2wpdq7evlyedyfv3qx7butya1`
+    FOREIGN KEY (`cpf`)
+    REFERENCES `estacionamento`.`clientes` (`id_cliente`),
+  CONSTRAINT `FKoy1uvgjfpjcactqlnrjai253u`
+    FOREIGN KEY (`placa`)
+    REFERENCES `estacionamento`.`veiculos` (`id_veiculo`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 5
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
