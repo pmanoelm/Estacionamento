@@ -81,7 +81,7 @@ public class TicketServiceImpl implements TicketService {
 		Ticket ticket = new Ticket();
 		ticket.setHoraSaida(LocalDateTime.now());
 		ticket.setValorHora(calculaValor(ticket, veiculoDto));
-		returnticketRepository.save(ticket);
+		return ticketRepository.save(ticket);
 	}
 
 	public double calculaValor(Ticket ticket,VeiculoDTO veiculosDTO) {
