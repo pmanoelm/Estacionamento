@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import br.com.everis.estacionamento.estacionamento.model.Ticket;
+import br.com.everis.estacionamento.estacionamento.model.Veiculos;
 import br.com.everis.estacionamento.estacionamento.service.dto.TicketDTO;
 import br.com.everis.estacionamento.estacionamento.service.dto.VeiculoDTO;
 
@@ -23,6 +24,6 @@ public interface TicketService {
 
 	int vagalivres();
 
-	Ticket AtualizarTicket(Ticket ticket,VeiculoDTO veiculodto);
+	Ticket AtualizarTicket(Ticket ticket,VeiculoDTO veiculosDTO);
 
 }

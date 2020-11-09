@@ -10,6 +10,7 @@ import br.com.everis.estacionamento.estacionamento.model.veiculosEnum;
 import br.com.everis.estacionamento.estacionamento.repository.ClienteRepository;
 import br.com.everis.estacionamento.estacionamento.repository.VeiculoRepository;
 import br.com.everis.estacionamento.estacionamento.service.VeiculosService;
+import br.com.everis.estacionamento.estacionamento.service.dto.TicketDTO;
 import br.com.everis.estacionamento.estacionamento.service.dto.VeiculoDTO;
 
 @Service
@@ -38,6 +39,8 @@ public class VeiculosServiceImpl implements VeiculosService {
 			veiculosEnum veiculosenum = veiculosEnum.CARRO;
 			int veiculosenumV = veiculosenum.getValue();
 			veiculo.setValor(veiculosenumV);
+			TicketDTO ticket = new  TicketDTO();
+					ticket.setValor(veiculosenumV);
 			veiculosDTO.setValor(veiculosenumV);
 			return veiculoRepository.save(veiculo);
 		}

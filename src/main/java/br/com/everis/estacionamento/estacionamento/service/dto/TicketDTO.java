@@ -10,6 +10,15 @@ public class TicketDTO {
 	private String vaga;
 	private String placaVeiculo;
 	private String tipo;
+	private double valor;
+
+	public double getValor() {
+		return valor;
+	}
+
+	public void setValor(double valor) {
+		this.valor = valor;
+	}
 
 	public String getTipo() {
 		return tipo;
