@@ -24,6 +24,6 @@ public interface TicketService {
 
 	int vagalivres();
 
-	Ticket AtualizarTicket(TicketDTO ticketdto, VeiculoDTO veiculoDto);
+	Ticket AtualizarTicket(Ticket ticketdto, VeiculoDTO veiculoDto);
 
 }

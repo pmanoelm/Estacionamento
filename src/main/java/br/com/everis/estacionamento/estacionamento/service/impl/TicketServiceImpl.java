@@ -77,16 +77,16 @@ public class TicketServiceImpl implements TicketService {
 	}
 
 	@Override
-	public Ticket AtualizarTicket(TicketDTO ticketdto, VeiculoDTO veiculoDto) {
-		Ticket ticket = new Ticket();
-		ticket.setHoraSaida(LocalDateTime.now());
-		ticket.setValorHora(calculaValor(ticket, veiculoDto));
-		return ticketRepository.save(ticket);
+	public Ticket AtualizarTicket(Ticket ticketdto, VeiculoDTO veiculoDto) {
+		
+		ticketdto.setHoraSaida(LocalDateTime.now());
+	//	ticket.setValorHora(calculaValor(ticketdto, veiculoDto));
+		return ticketRepository.save(ticketdto);
 	}
 
-	public double calculaValor(Ticket ticket,VeiculoDTO veiculosDTO) {
+	public double calculaValor(TicketDTO ticketdto,VeiculoDTO veiculosDTO) {
 		double pagar = 0;
-		Long difS = ChronoUnit.SECONDS.between(ticket.getHoraEntrada(), ticket.getHoraSaida());
+		Long difS = ChronoUnit.SECONDS.between(ticketdto.getHoraEntrada(), ticketdto.getHoraSaida());
 		int hora = (int) (difS / 3600);
 		int min = (int) (difS / 60 - hora * 60);
 		if (min > 30) {

@@ -28,7 +28,7 @@ public class TicketController {
 	}
 
 	@PutMapping("/AtualizarTicket")
-	public Ticket AtualizarTicket(@RequestBody TicketDTO ticketdto, VeiculoDTO veiculoDto) {
+	public Ticket AtualizarTicket(@RequestBody Ticket ticketdto, VeiculoDTO veiculoDto) {
 
 		return ticketservice.AtualizarTicket(ticketdto, veiculoDto);
 
