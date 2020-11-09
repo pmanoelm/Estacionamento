@@ -21,11 +21,6 @@ public class VeiculosServiceImpl implements VeiculosService {
 	private ClienteRepository clienteRepository;
 
 	@Override
-	public String findByPlaca(String placa) {
-		return veiculoRepository.findByPlaca(placa).toString();
-	}
-
-	@Override
 	public Veiculos save(VeiculoDTO veiculosDTO) {
 		Veiculos veiculo = new Veiculos();
 
@@ -39,23 +34,20 @@ public class VeiculosServiceImpl implements VeiculosService {
 			veiculosEnum veiculosenum = veiculosEnum.CARRO;
 			int veiculosenumV = veiculosenum.getValue();
 			veiculo.setValor(veiculosenumV);
-			TicketDTO ticket = new  TicketDTO();
-					ticket.setValor(veiculosenumV);
-			veiculosDTO.setValor(veiculosenumV);
+			TicketDTO ticket = new TicketDTO();
+			ticket.setValor(veiculosenumV);
 			return veiculoRepository.save(veiculo);
 		}
 		if (veiculosDTO.getTipo().equalsIgnoreCase("caminhao")) {
 			veiculosEnum veiculosenum = veiculosEnum.CAMINHAO;
 			int veiculosenumV = veiculosenum.getValue();
 			veiculo.setValor(veiculosenumV);
-			veiculosDTO.setValor(veiculosenumV);
 			return veiculoRepository.save(veiculo);
 		}
 		if (veiculosDTO.getTipo().equalsIgnoreCase("moto")) {
 			veiculosEnum veiculosenum = veiculosEnum.MOTO;
 			int veiculosenumV = veiculosenum.getValue();
 			veiculo.setValor(veiculosenumV);
-			veiculosDTO.setValor(veiculosenumV);
 			return veiculoRepository.save(veiculo);
 		}
 		return veiculoRepository.save(veiculo);
@@ -69,6 +61,12 @@ public class VeiculosServiceImpl implements VeiculosService {
 	@Override
 	public void deletar(Veiculos veiculos) {
 		veiculoRepository.delete(veiculos);
+	}
+
+	@Override
+	public Veiculos findById(Long Id) {
+
+		return veiculoRepository.findById(Id).get();
 	}
 
 }

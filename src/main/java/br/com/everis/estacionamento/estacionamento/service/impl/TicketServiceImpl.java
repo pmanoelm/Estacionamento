@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.everis.estacionamento.estacionamento.model.Ticket;
-import br.com.everis.estacionamento.estacionamento.model.Veiculos;
 import br.com.everis.estacionamento.estacionamento.repository.TicketRepository;
 import br.com.everis.estacionamento.estacionamento.repository.VeiculoRepository;
 import br.com.everis.estacionamento.estacionamento.service.TicketService;
@@ -77,16 +76,16 @@ public class TicketServiceImpl implements TicketService {
 	}
 
 	@Override
-	public Ticket AtualizarTicket(Ticket ticketdto, VeiculoDTO veiculoDto) {
+	public Ticket AtualizarTicket(Ticket ticket, VeiculoDTO veiculoDto) {
 		
-		ticketdto.setHoraSaida(LocalDateTime.now());
-		ticketdto.setValorHora(calculaValor(ticketdto, veiculoDto));
-		return ticketRepository.save(ticketdto);
+		ticket.setHoraSaida(LocalDateTime.now());
+		ticket.setValorHora(calculaValor(ticket, veiculoDto));
+		return ticketRepository.save(ticket);
 	}
 
-	public double calculaValor(Ticket ticketdto,VeiculoDTO veiculosDTO) {
+	public double calculaValor(Ticket ticket,VeiculoDTO veiculosDTO) {
 		double pagar = 0;
-		Long difS = ChronoUnit.SECONDS.between(ticketdto.getHoraEntrada(), ticketdto.getHoraSaida());
+		Long difS = ChronoUnit.SECONDS.between(ticket.getHoraEntrada(), ticket.getHoraSaida());
 		int hora = (int) (difS / 3600);
 		int min = (int) (difS / 60 - hora * 60);
 		if (min > 30) {

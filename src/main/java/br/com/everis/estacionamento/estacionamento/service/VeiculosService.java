@@ -7,7 +7,7 @@ import br.com.everis.estacionamento.estacionamento.service.dto.VeiculoDTO;
 
 public interface VeiculosService {
 
-	String findByPlaca(String placa);
+	Veiculos findById(Long Id);
 
 	Veiculos save(VeiculoDTO veiculosdto);
 

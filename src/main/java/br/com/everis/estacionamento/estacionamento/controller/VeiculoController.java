@@ -40,10 +40,11 @@ public class VeiculoController {
 		return veiculos;
 	}
 
-	@GetMapping("/veiculoporplaca")
-	public String VeiculoByPlaca(@PathParam("placa") String placa) {
-		String veiculo = veiculoService.findByPlaca(placa);
+	@GetMapping("/veiculoporporid")
+	public Veiculos VeiculoByPlaca(@PathParam("id") Long id) {
+		Veiculos veiculo = veiculoService.findById(id);
 		return veiculo;
 	}
-
+	
+	
 }
