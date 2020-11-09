@@ -3,9 +3,11 @@ package br.com.everis.estacionamento.estacionamento.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.everis.estacionamento.estacionamento.model.Ticket;
@@ -27,12 +29,18 @@ public class TicketController {
 		return "/ticketsalvar";
 	}
 
-	@PutMapping("/AtualizarTicket")
-	public Ticket AtualizarTicket(@RequestBody Ticket ticketdto, VeiculoDTO veiculoDto) {
-
-		return ticketservice.AtualizarTicket(ticketdto, veiculoDto);
+	@PutMapping("/AtualizarTicket/{id}")
+	public Ticket AtualizarTicket(@PathVariable Long id) {
+		Ticket ticket = ticketservice.findByID(id);
+		return ticketservice.AtualizarTicket(ticket);
 
 	}
+//	@PutMapping("/AtualizarTicket")
+//	public Ticket AtualizarTicket(@RequestBody Ticket ticket) {
+//
+//		return ticketservice.AtualizarTicket(ticket);
+//
+//	}
 
 	@GetMapping("/ticketodos")
 	public Iterable<Ticket> listaTickets(Model model) {
