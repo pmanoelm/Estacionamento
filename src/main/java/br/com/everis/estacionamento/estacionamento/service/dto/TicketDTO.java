@@ -8,7 +8,6 @@ public class TicketDTO {
 	private LocalDateTime horaSaida;
 	private String codigoTicket;
 	private String vaga;
-	private String cpf;
 	private String placaVeiculo;
 	private String tipo;
 
@@ -52,13 +51,7 @@ public class TicketDTO {
 		this.vaga = vaga;
 	}
 
-	public String getCpf() {
-		return cpf;
-	}
 
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
 
 	public String getPlacaVeiculo() {
 		return placaVeiculo;

@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.everis.estacionamento.estacionamento.model.TipoVeiculos;
 import br.com.everis.estacionamento.estacionamento.model.Veiculos;
+import br.com.everis.estacionamento.estacionamento.model.veiculosEnum;
 import br.com.everis.estacionamento.estacionamento.repository.ClienteRepository;
 import br.com.everis.estacionamento.estacionamento.repository.VeiculoRepository;
 import br.com.everis.estacionamento.estacionamento.service.VeiculosService;
@@ -25,22 +25,37 @@ public class VeiculosServiceImpl implements VeiculosService {
 	}
 
 	@Override
-	public Veiculos save(VeiculoDTO veiculosdto, TipoVeiculos tipo) {
+	public Veiculos save(VeiculoDTO veiculosDTO) {
+		Veiculos veiculo = new Veiculos();
 
-		Veiculos veiculos = new Veiculos();
-		veiculos.setModelo(veiculosdto.getModelo());
-		veiculos.setPlaca(veiculosdto.getPlaca());
-		veiculos.setTipo(veiculosdto.getTipo());
-		veiculos.setCliente(clienteRepository.findByCpf(veiculosdto.getCpf()));
+		veiculo.setModelo(veiculosDTO.getModelo());
+		veiculo.setPlaca(veiculosDTO.getPlaca());
+		veiculo.setTipoVeiculo(veiculosDTO.getTipo().toUpperCase());
+		veiculo.setCliente(clienteRepository.findByCpf(veiculosDTO.getCpf()));
 
-		if (tipo.toString() != veiculosdto.getTipo()) {
+		if (veiculosDTO.getTipo().equalsIgnoreCase("carro")) {
 
-			veiculos.setValor(tipo.getValor());
-			return veiculoRepository.save(veiculos);
-
+			veiculosEnum veiculosenum = veiculosEnum.CARRO;
+			int veiculosenumV = veiculosenum.getValue();
+			veiculo.setValor(veiculosenumV);
+			veiculosDTO.setValor(veiculosenumV);
+			return veiculoRepository.save(veiculo);
 		}
-		return veiculoRepository.save(veiculos);
-
+		if (veiculosDTO.getTipo().equalsIgnoreCase("caminhao")) {
+			veiculosEnum veiculosenum = veiculosEnum.CAMINHAO;
+			int veiculosenumV = veiculosenum.getValue();
+			veiculo.setValor(veiculosenumV);
+			veiculosDTO.setValor(veiculosenumV);
+			return veiculoRepository.save(veiculo);
+		}
+		if (veiculosDTO.getTipo().equalsIgnoreCase("moto")) {
+			veiculosEnum veiculosenum = veiculosEnum.MOTO;
+			int veiculosenumV = veiculosenum.getValue();
+			veiculo.setValor(veiculosenumV);
+			veiculosDTO.setValor(veiculosenumV);
+			return veiculoRepository.save(veiculo);
+		}
+		return veiculoRepository.save(veiculo);
 	}
 
 	@Override

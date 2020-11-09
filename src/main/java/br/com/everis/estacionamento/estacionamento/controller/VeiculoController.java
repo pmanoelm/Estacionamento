@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.everis.estacionamento.estacionamento.model.TipoVeiculos;
 import br.com.everis.estacionamento.estacionamento.model.Veiculos;
 import br.com.everis.estacionamento.estacionamento.service.VeiculosService;
 import br.com.everis.estacionamento.estacionamento.service.dto.VeiculoDTO;
@@ -22,8 +21,8 @@ public class VeiculoController {
 	private VeiculosService veiculoService;
 
 	@PostMapping("/veiculosalvar")
-	public String salvar(VeiculoDTO veiculosdto, TipoVeiculos tipo) {
-		veiculoService.save(veiculosdto, tipo);
+	public String salvar(@RequestBody VeiculoDTO veiculosdto) {
+		veiculoService.save(veiculosdto);
 		return "/clienteSalvar";
 	}
 

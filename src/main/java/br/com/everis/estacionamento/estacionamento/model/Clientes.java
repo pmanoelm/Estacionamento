@@ -2,6 +2,7 @@ package br.com.everis.estacionamento.estacionamento.model;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,6 +27,7 @@ public class Clientes {
 	private String email;
 	private String telefone;
 	@CPF(message = "cpf invalido")
+	@Column(unique = true)
 	private String cpf;
 
 	@OneToMany(targetEntity = Veiculos.class)
