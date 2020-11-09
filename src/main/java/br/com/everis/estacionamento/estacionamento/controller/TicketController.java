@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.everis.estacionamento.estacionamento.model.Ticket;
-import br.com.everis.estacionamento.estacionamento.model.Veiculos;
 import br.com.everis.estacionamento.estacionamento.service.TicketService;
 import br.com.everis.estacionamento.estacionamento.service.dto.TicketDTO;
 import br.com.everis.estacionamento.estacionamento.service.dto.VeiculoDTO;
@@ -29,9 +28,9 @@ public class TicketController {
 	}
 
 	@PutMapping("/AtualizarTicket")
-	public Ticket AtualizarTicket(@RequestBody Ticket ticket, VeiculoDTO veiculoDto) {
+	public Ticket AtualizarTicket(@RequestBody TicketDTO ticketdto, VeiculoDTO veiculoDto) {
 
-		return ticketservice.AtualizarTicket(ticket, veiculoDto);
+		return ticketservice.AtualizarTicket(ticketdto, veiculoDto);
 
 	}
 

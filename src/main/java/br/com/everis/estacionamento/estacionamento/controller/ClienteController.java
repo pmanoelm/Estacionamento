@@ -1,5 +1,6 @@
 package br.com.everis.estacionamento.estacionamento.controller;
 
+import javax.validation.Valid;
 import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class ClienteController {
 	private ClienteService clienteService;
 
 	@PostMapping("/clientesalvar")
-	public String salvar(@RequestBody Clientes cliente) {
+	public String salvar(@RequestBody @Valid Clientes cliente) {
 		clienteService.save(cliente);
 		return "/clienteSalvar";
 	}

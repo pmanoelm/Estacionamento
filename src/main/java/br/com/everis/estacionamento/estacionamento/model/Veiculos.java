@@ -1,5 +1,6 @@
 package br.com.everis.estacionamento.estacionamento.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
@@ -15,6 +16,7 @@ public class Veiculos {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id_veiculo;
 	private String modelo;
+	@Column(unique = true)
 	private String placa;
 	private String tipoVeiculo;
 	private int valor;
