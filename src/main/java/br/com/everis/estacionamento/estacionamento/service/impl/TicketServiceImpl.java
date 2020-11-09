@@ -80,11 +80,11 @@ public class TicketServiceImpl implements TicketService {
 	public Ticket AtualizarTicket(Ticket ticketdto, VeiculoDTO veiculoDto) {
 		
 		ticketdto.setHoraSaida(LocalDateTime.now());
-	//	ticket.setValorHora(calculaValor(ticketdto, veiculoDto));
+		ticketdto.setValorHora(calculaValor(ticketdto, veiculoDto));
 		return ticketRepository.save(ticketdto);
 	}
 
-	public double calculaValor(TicketDTO ticketdto,VeiculoDTO veiculosDTO) {
+	public double calculaValor(Ticket ticketdto,VeiculoDTO veiculosDTO) {
 		double pagar = 0;
 		Long difS = ChronoUnit.SECONDS.between(ticketdto.getHoraEntrada(), ticketdto.getHoraSaida());
 		int hora = (int) (difS / 3600);
