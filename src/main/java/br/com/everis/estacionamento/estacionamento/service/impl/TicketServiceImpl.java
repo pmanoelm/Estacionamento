@@ -13,7 +13,6 @@ import br.com.everis.estacionamento.estacionamento.repository.TicketRepository;
 import br.com.everis.estacionamento.estacionamento.repository.VeiculoRepository;
 import br.com.everis.estacionamento.estacionamento.service.TicketService;
 import br.com.everis.estacionamento.estacionamento.service.dto.TicketDTO;
-import br.com.everis.estacionamento.estacionamento.service.dto.VeiculoDTO;
 
 @Service
 public class TicketServiceImpl implements TicketService {
@@ -77,7 +76,7 @@ public class TicketServiceImpl implements TicketService {
 
 	@Override
 	public Ticket AtualizarTicket(Ticket ticket) {
-		
+
 		ticket.setHoraSaida(LocalDateTime.now());
 		ticket.setValorHora(calculaValor(ticket));
 		return ticketRepository.save(ticket);
