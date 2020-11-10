@@ -6,295 +6,370 @@
 	},
 	"item": [
 		{
-			"name": "clientesalvar",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"nome\":\"pedro\",\r\n    \"email\":\"123@123\", \r\n    \"telefone\":987645321,\r\n    \"cpf\":\"07179591980\"\r\n\r\n\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8080/clientesalvar",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"clientesalvar"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "clienteDeletar",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n         \"id_cliente\": 1,\r\n        \"nome\": \"pedro\",\r\n        \"email\": \"123@123\",\r\n        \"telefone\": \"987645321\",\r\n        \"cpf\": \"07179591980\",\r\n        \"veiculos\": [],\r\n        \"id\": 1\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8080/clienteDeletar",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"clienteDeletar"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "clientestodos",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/clientestodos",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"clientestodos"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "clienteporid",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/clienteporid?id=6",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"clienteporid"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "6"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "veiculosalvarcarro",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"modelo\":\"onix\",\r\n    \"placa\":MHDX6547,\r\n\"tipo \":\"carro\",\r\n\"cpf\":\"07179591980\"\r\n    \r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": ""
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "ticketsalvar",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"placaVeiculo\":\"lhuiah5\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "POST",
+			"item": [
+				{
+					"name": "clientesalvar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\":\"pedro\",\r\n    \"email\":\"123@123\", \r\n    \"telefone\":987645321,\r\n    \"cpf\":\"07179591980\"\r\n\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
 						},
-						"urlencoded": {}
+						"url": {
+							"raw": "http://localhost:8080/clientesalvar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientesalvar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "veiculosalvarcarro",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"modelo\":\"onix\",\r\n    \"placa\":MHDX6547,\r\n\"tipo \":\"carro\",\r\n\"cpf\":\"07179591980\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ticketsalvar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"placaVeiculo\":\"lhuiah5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								},
+								"urlencoded": {}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/ticketsalvar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ticketsalvar"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f3bb728f-3de6-4cb2-8fd5-901d1e8069a6",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
 					}
 				},
-				"url": {
-					"raw": "http://localhost:8080/ticketsalvar",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"ticketsalvar"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "veiculotodos",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": ""
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "veiculoDeletar",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "    {\r\n        \"id_veiculo\": 5,\r\n        \"modelo\": \"monza\",\r\n        \"placa\": \"6549uhiu\",\r\n        \"tipo\": \"carro\",\r\n        \"valor\": 10\r\n       }",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
+				{
+					"listen": "test",
+					"script": {
+						"id": "b8d5ec17-7f83-4920-b9e9-62fe498ab00c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
 					}
-				},
-				"url": {
-					"raw": "http://localhost:8080/veiculodeletar",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"veiculodeletar"
-					]
 				}
-			},
-			"response": []
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "veiculoporid",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/veiculoporplaca?placa=mhdx6587",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"veiculoporplaca"
-					],
-					"query": [
-						{
-							"key": "placa",
-							"value": "mhdx6587"
+			"name": "GET",
+			"item": [
+				{
+					"name": "clientestodos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/clientestodos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clientestodos"
+							]
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "atualizaCliente",
-			"protocolProfileBehavior": {
-				"disabledSystemHeaders": {}
-			},
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "       {\r\n       \"id_cliente\":4,\r\n        \"nome\": \"bruna feitosa pereira\",\r\n        \"email\": \"123@123\",\r\n        \"telefone\": \"987645321\",\r\n        \"cpf\": \"08820161052\"\r\n           }",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8080/AtualizarCliente",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"AtualizarCliente"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Todos os tickets",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/ticketodos",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"ticketodos"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Atualizar ticket",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "   {\r\n        \"id_ticket\": 1,\r\n        \"horaEntrada\": 10,\r\n        \"horaSaida\": 0,\r\n        \"minEntrada\": 12,\r\n        \"minSaida\": 0,\r\n        \"segEntrada\": 13,\r\n        \"segSaida\": 0,\r\n        \"codigoTicket\": 533876,\r\n        \"vaga\": 76,\r\n        \"valorHora\": 0.0,\r\n   }",
-					"options": {
-						"raw": {
-							"language": "json"
+				{
+					"name": "clienteporid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/clienteporid?id=6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clienteporid"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "6"
+								}
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8080/AtualizarTicket",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"AtualizarTicket"
-					]
+				{
+					"name": "veiculotodos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "veiculoporid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/veiculoporplaca?placa=mhdx6587",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"veiculoporplaca"
+							],
+							"query": [
+								{
+									"key": "placa",
+									"value": "mhdx6587"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Todos os tickets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ticketodos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ticketodos"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "DEL",
+			"item": [
+				{
+					"name": "clienteDeletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n         \"id_cliente\": 1,\r\n        \"nome\": \"pedro\",\r\n        \"email\": \"123@123\",\r\n        \"telefone\": \"987645321\",\r\n        \"cpf\": \"07179591980\",\r\n        \"veiculos\": [],\r\n        \"id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/clienteDeletar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"clienteDeletar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "veiculoDeletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"id_veiculo\": 5,\r\n        \"modelo\": \"monza\",\r\n        \"placa\": \"6549uhiu\",\r\n        \"tipo\": \"carro\",\r\n        \"valor\": 10\r\n       }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/veiculodeletar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"veiculodeletar"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "PUT",
+			"item": [
+				{
+					"name": "atualizaCliente",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "       {\r\n       \"id_cliente\":4,\r\n        \"nome\": \"bruna feitosa pereira\",\r\n        \"email\": \"123@123\",\r\n        \"telefone\": \"987645321\",\r\n        \"cpf\": \"08820161052\"\r\n           }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/AtualizarCliente",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"AtualizarCliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar ticket",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "   {\r\n        \"id_ticket\": 1,\r\n        \"horaEntrada\": 10,\r\n        \"horaSaida\": 0,\r\n        \"minEntrada\": 12,\r\n        \"minSaida\": 0,\r\n        \"segEntrada\": 13,\r\n        \"segSaida\": 0,\r\n        \"codigoTicket\": 533876,\r\n        \"vaga\": 76,\r\n        \"valorHora\": 0.0,\r\n   }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/AtualizarTicket",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"AtualizarTicket"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "atualizarticketid",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/AtualizarTicket/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"AtualizarTicket",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
 		}
 	],
 	"protocolProfileBehavior": {}
