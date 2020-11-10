@@ -35,12 +35,12 @@ public class TicketController {
 		return ticketservice.AtualizarTicket(ticket);
 
 	}
-//	@PutMapping("/AtualizarTicket")
-//	public Ticket AtualizarTicket(@RequestBody Ticket ticket) {
-//
-//		return ticketservice.AtualizarTicket(ticket);
-//
-//	}
+	@PutMapping("/AtualizarTicket")
+	public Ticket AtualizarTicket(@RequestBody Ticket ticket) {
+
+		return ticketservice.AtualizarTicket(ticket);
+
+	}
 
 	@GetMapping("/ticketodos")
 	public Iterable<Ticket> listaTickets(Model model) {
